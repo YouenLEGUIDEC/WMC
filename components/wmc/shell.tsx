@@ -5,20 +5,20 @@ import {
   Home,
   Users,
   Bike,
-  ArrowUpRight,
+  ArrowRight,
   Compass,
   Menu,
   X,
-  Zap,
   Shield,
 } from "lucide-react";
 import { useState } from "react";
 import { DemoProvider, useDemo } from "@/lib/demo/store";
+import { Brand } from "./brand";
 const navigation = [
-  { href: "/dashboard", label: "Mon peloton", icon: Home },
-  { href: "/members", label: "Les cyclistes", icon: Users },
-  { href: "/rides", label: "Les sorties", icon: Compass },
-  { href: "/garage", label: "Le garage", icon: Bike },
+  { href: "/dashboard", label: "Au club", mobile: "Club", icon: Home },
+  { href: "/members", label: "Les copains", mobile: "Copains", icon: Users },
+  { href: "/rides", label: "Les sorties", mobile: "Sorties", icon: Compass },
+  { href: "/garage", label: "Le garage", mobile: "Garage", icon: Bike },
 ];
 function Chrome({ children }: { children: React.ReactNode }) {
   const path = usePathname();
@@ -30,19 +30,15 @@ function Chrome({ children }: { children: React.ReactNode }) {
         Aller au contenu
       </a>
       <div className="demo-ribbon">
-        V0 · EXPLORATION DU CLUB{" "}
-        <span>
-          Profils et sorties fictifs · actions enregistrées sur cet appareil
+        <span className="demo-label">DÉMONSTRATION</span> Des personnages
+        fictifs, un vrai projet de club.
+        <span className="demo-detail">
+          Tes essais restent sur cet appareil.
         </span>
       </div>
       <header className="header">
-        <Link href="/" aria-label="Watt et Malt, accueil" className="wordmark">
-          <span className="brand-icon">
-            <Zap size={23} fill="currentColor" />
-          </span>
-          <span>
-            WATT <i>&</i> MALT<small>CYCLING CLUB · BRETAGNE</small>
-          </span>
+        <Link href="/" className="wordmark" aria-label="Watt & Malt, accueil">
+          <Brand />
         </Link>
         <nav
           className={open ? "desktop-nav is-open" : "desktop-nav"}
@@ -62,54 +58,70 @@ function Chrome({ children }: { children: React.ReactNode }) {
         <Link
           href={path === "/" ? "/onboarding" : "/profile"}
           className="header-cta"
+          onClick={() => setOpen(false)}
         >
-          {path === "/" ? "Entrer dans le club" : state.profile.name}
-          <ArrowUpRight size={17} />
+          {path === "/" ? "Viens rouler" : state.profile.name}
+          <ArrowRight size={17} />
         </Link>
         <button
           className="menu-button"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           onClick={() => setOpen(!open)}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setOpen(false);
+          }}
         >
           {open ? <X /> : <Menu />}
         </button>
       </header>
       {storageError && (
         <p className="storage-warning" role="status">
-          Le stockage local est indisponible. Vos actions restent disponibles
-          pendant cette visite.
+          Ton navigateur ne peut pas enregistrer tes choix. Tu peux continuer à
+          essayer le site pendant cette visite.
         </p>
       )}
       <main id="main">{children}</main>
-      <footer>
-        <Link className="footer-brand" href="/">
-          WATT <i>&</i> MALT.
-        </Link>
-        <p>Né à Brandérion. Pour tous les cyclistes du coin.</p>
-        <div>
-          <span>47°47′ N · 3°11′ O</span>
-          <Link href="/settings/privacy">
-            <Shield size={14} />
-            Confidentialité
+      <footer className="club-footer">
+        <div className="footer-top">
+          <Link className="footer-brand" href="/">
+            <Brand />
           </Link>
-          <span>© 2026 Watt & Malt Club · Démonstration</span>
+          <p>
+            Brûler des Watts.
+            <br />
+            <em>Savourer du Malt.</em>
+          </p>
+          <Link className="text-link" href="/rides">
+            On se retrouve au départ ?<ArrowRight size={18} />
+          </Link>
+        </div>
+        <div className="footer-local">
+          <span>
+            Brandérion, Morbihan.
+            <br />
+            Du Blavet aux routes du pays de Lorient.
+          </span>
+          <Link href="/settings/privacy">
+            <Shield size={15} />
+            Tes données, tes choix
+          </Link>
+          <span>
+            © 2026 Watt & Malt Club
+            <br />
+            Personnages, portraits et sorties de démonstration.
+          </span>
         </div>
       </footer>
       <nav className="mobile-nav" aria-label="Navigation mobile">
-        {navigation.map(({ href, label, icon: Icon }) => (
+        {navigation.map(({ href, mobile, icon: Icon }) => (
           <Link
             key={href}
             href={href}
             aria-current={path.startsWith(href) ? "page" : undefined}
           >
-            <Icon size={21} />
-            <span>
-              {label
-                .replace("Les ", "")
-                .replace("Le ", "")
-                .replace("Mon peloton", "Accueil")}
-            </span>
+            <Icon size={22} strokeWidth={1.7} />
+            <span>{mobile}</span>
           </Link>
         ))}
       </nav>

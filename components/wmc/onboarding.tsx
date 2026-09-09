@@ -19,10 +19,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 const steps = [
-  "Les présentations",
-  "Ta façon de rouler",
-  "Tes rendez-vous",
-  "À toi de choisir",
+  "Ton prénom, ton coin",
+  "Ton vélo, ton rythme",
+  "Quand on te retrouve",
+  "Ce que tu partages",
 ];
 function OnboardingForm() {
   const { state, saveProfile } = useDemo();
@@ -38,18 +38,14 @@ function OnboardingForm() {
       <aside className="onboarding-aside">
         <p className="eyebrow">BIENVENUE DANS LE CLUB</p>
         <h1>
-          CHAQUE{" "}
+          La prochaine,
           <br />
-          PELOTON{" "}
-          <br />
-          COMMENCE{" "}
-          <br />
-          PAR <em>TOI.</em>
+          <em>tu viens ?</em>
         </h1>
         <p>
-          Pas besoin d’être le plus rapide.
+          On te garde une place au départ.
           <br />
-          Juste d’avoir envie de rouler ensemble.
+          Dis-nous juste à quoi ressemble ton dimanche.
         </p>
         <ol>
           {steps.map((s, i) => (
@@ -93,10 +89,11 @@ function OnboardingForm() {
             {step === 0 && (
               <>
                 <MapPin className="step-icon" />
-                <h2>On fait connaissance ?</h2>
+                <h2>Salut, toi c’est… ?</h2>
                 <p className="muted">
-                  Un prénom et ton coin de Bretagne. Le reste viendra en
-                  roulant.
+                  Un prénom pour t’appeler au départ. Une commune pour trouver
+                  les sorties qui ne commencent pas à l’autre bout du
+                  département.
                 </p>
                 <label className="field">
                   <span>Ton prénom ou pseudo</span>
@@ -118,17 +115,18 @@ function OnboardingForm() {
                 />
                 <p className="small-note">
                   <Shield size={16} />
-                  Ta commune suffit. On ne te demande jamais ton adresse.
+                  Ton adresse reste chez toi. La commune nous suffit.
                 </p>
               </>
             )}
             {step === 1 && (
               <>
                 <Bike className="step-icon" />
-                <h2>À chacun son rythme.</h2>
+                <h2>À quelle allure on bavarde ?</h2>
                 <p className="muted">
-                  Pense à une sortie où tu te sens bien, pas à ton meilleur
-                  jour.
+                  Pense à ton allure habituelle sur le plat. Celle que tu tiens
+                  confortablement, même quand les jambes ne sont pas dans un
+                  grand jour.
                 </p>
                 <Choice
                   label="Ta discipline principale"
@@ -181,10 +179,11 @@ function OnboardingForm() {
             {step === 2 && (
               <>
                 <Calendar className="step-icon" />
-                <h2>On se retrouve quand ?</h2>
+                <h2>Quand est-ce qu’on te voit ?</h2>
                 <p className="muted">
-                  Choisis ton créneau préféré et ce qui rend une sortie vraiment
-                  bonne.
+                  Mercredi après le boulot ? Dimanche avant le déjeuner ?
+                  Choisis le moment que tu arrives vraiment à garder pour le
+                  vélo.
                 </p>
                 <Choice
                   label="Ton créneau habituel"
@@ -193,7 +192,7 @@ function OnboardingForm() {
                   options={["Dimanche matin", "Mercredi soir", "Samedi matin"]}
                 />
                 <Choice
-                  label="Ton esprit vélo"
+                  label="Ce que tu viens chercher"
                   value={profile.style}
                   onChange={(v) => change("style", v)}
                   options={[
@@ -205,7 +204,7 @@ function OnboardingForm() {
                   ]}
                 />
                 <Choice
-                  label="Après la sortie, plutôt…"
+                  label="Le vélo posé, tu fais quoi ?"
                   value={profile.social}
                   onChange={(v) => change("social", v)}
                   options={["Café", "Terrasse", "Retour maison", "Pâtisserie"]}
@@ -215,10 +214,10 @@ function OnboardingForm() {
             {step === 3 && (
               <>
                 <Coffee className="step-icon" />
-                <h2>Ton peloton est presque prêt.</h2>
+                <h2>On peut faire les présentations.</h2>
                 <p className="muted">
-                  Voici ta carte de visite pour la démo. Tu pourras la modifier
-                  à tout moment.
+                  Voilà ce que les copains apprendraient de toi au départ. Tu
+                  peux encore revenir sur tes choix.
                 </p>
                 <div className="onboarding-recap">
                   <h3>
@@ -233,7 +232,7 @@ function OnboardingForm() {
                   </p>
                 </div>
                 <Choice
-                  label="Visibilité souhaitée pour le futur compte"
+                  label="Qui pourra voir ces infos dans le futur club ?"
                   value={profile.visibility}
                   onChange={(v) => change("visibility", v)}
                   options={["Membres uniquement", "Privé"]}
@@ -276,7 +275,7 @@ function OnboardingForm() {
               className="btn"
               disabled={!profile.name.trim() || (step === 3 && !consent)}
             >
-              {step === 3 ? "Trouver mon peloton" : "Continuer"}
+              {step === 3 ? "Voir les copains du coin" : "Continuer"}
               <ArrowRight size={18} />
             </button>
           </div>
@@ -291,7 +290,7 @@ export function Onboarding() {
     <OnboardingForm />
   ) : (
     <div className="page" role="status">
-      Préparation de ton profil…
+      On prépare ta fiche de club…
     </div>
   );
 }

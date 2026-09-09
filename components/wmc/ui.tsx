@@ -2,13 +2,12 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  MapPin,
   ArrowRight,
   Mountain,
   Users,
-  ChevronRight,
+  Coffee,
 } from "lucide-react";
-import type { Member, Ride } from "@/lib/demo/data";
+import { members, type Member, type Ride } from "@/lib/demo/data";
 import { compatibility } from "@/lib/demo/matching";
 import { useDemo } from "@/lib/demo/store";
 import {
@@ -56,12 +55,16 @@ export function Avatar({
 }) {
   return (
     <span
-      className={`avatar ${large ? "large" : ""}`}
-      style={{ background: member.color }}
-      aria-label={member.name}
-    >
-      {member.initials}
-    </span>
+      className={`avatar portrait ${large ? "large" : ""}`}
+      role="img"
+      aria-label={`Portrait fictif de ${member.name}`}
+      style={{
+        backgroundColor: member.color,
+        backgroundImage: "url(/images/portraits.webp)",
+        backgroundSize: "400% 400%",
+        backgroundPosition: `${((member.portrait % 4) * 100) / 3}% ${(Math.floor(member.portrait / 4) * 100) / 3}%`,
+      }}
+    />
   );
 }
 export function SectionTitle({
@@ -95,39 +98,39 @@ export function MemberCard({ member }: { member: Member }) {
   const match = compatibility(state.profile, member);
   return (
     <Link href={`/members/${member.id}`} className="member-card">
-      <div className="member-top">
+      <div className="member-portrait-frame">
         <Avatar member={member} />
-        <span className="match-number">
-          {match.score}
-          <small>% affinités</small>
+        <span className="member-discipline">{member.discipline}</span>
+        <span className="member-number">
+          W&M / {String(member.portrait + 1).padStart(2, "0")}
         </span>
       </div>
-      <h3>
-        {member.name}
-        <ArrowUpRight size={21} />
-      </h3>
-      <p className="muted location">
-        <MapPin size={14} />
-        {member.town}
-      </p>
-      <p className="member-style">{member.style}</p>
-      <div className="member-metrics">
-        <span>
-          <b>{member.pace}</b> km/h
-        </span>
-        <span>
-          <b>{member.distance}</b> km
-        </span>
-        <span>{member.discipline}</span>
-      </div>
-      <div className="card-bottom">
-        {member.day}
-        <ChevronRight size={16} />
+      <div className="member-card-body">
+        <div className="member-name-line">
+          <h3>{member.name}</h3>
+          <span>{member.town}</span>
+        </div>
+        <p className="member-quote">« {member.quote} »</p>
+        <div className="member-metrics">
+          <span>{member.pace} km/h</span>
+          <span>{member.distance} km</span>
+          <span>{member.day}</span>
+        </div>
+        <div className="card-bottom">
+          <span className="match-number">
+            <b>{match.score}%</b> d’affinités
+          </span>
+          <span className="member-meet">
+            Faire connaissance
+            <ArrowRight size={16} />
+          </span>
+        </div>
       </div>
     </Link>
   );
 }
 export function RideCard({ ride, index = 0 }: { ride: Ride; index?: number }) {
+  const host = members.find((m) => m.id === ride.host)!;
   return (
     <Link
       href={`/rides/${ride.id}`}
@@ -137,7 +140,7 @@ export function RideCard({ ride, index = 0 }: { ride: Ride; index?: number }) {
         <img
           width={1672}
           height={941}
-          src="/images/ride.webp"
+          src={index === 0 ? "/images/club-morning.webp" : "/images/ride.webp"}
           alt="Cyclistes sur une route de campagne, illustration de la sortie"
           loading="lazy"
         />
@@ -152,6 +155,9 @@ export function RideCard({ ride, index = 0 }: { ride: Ride; index?: number }) {
           {ride.town} · {ride.time}
         </p>
         <h3>{ride.title}</h3>
+        <p className="ride-host">
+          <Avatar member={host} /> Une sortie avec {host.name}
+        </p>
         <div className="ride-stats">
           <span>
             <b>{ride.km}</b> km
@@ -162,6 +168,10 @@ export function RideCard({ ride, index = 0 }: { ride: Ride; index?: number }) {
           </span>
           <span>{ride.pace} km/h</span>
         </div>
+        <p className="ride-ritual">
+          <Coffee size={15} />
+          {ride.cafe}
+        </p>
         <div className="card-bottom">
           <span>
             <Users size={15} />
@@ -176,11 +186,11 @@ export function RideCard({ ride, index = 0 }: { ride: Ride; index?: number }) {
 export function Empty({ text, action }: { text: string; action?: () => void }) {
   return (
     <div className="empty">
-      <h3>Personne dans la roue pour l’instant.</h3>
+      <h3>Pas encore de copain sur ce créneau.</h3>
       <p>{text}</p>
       {action && (
         <button className="btn secondary" onClick={action}>
-          Réinitialiser les filtres
+          Effacer les filtres
         </button>
       )}
     </div>

@@ -1,0 +1,270 @@
+/* Sorties : une fiche de rendez-vous plutôt qu’une vignette de catalogue. */
+.ride-card {
+  border: 1px solid #a8ac9750;
+  border-radius: 1px;
+  background: #2b382d;
+}
+.ride-card:hover {
+  border-color: #9fac8e;
+  transform: translateY(-3px);
+}
+.ride-art {
+  height: 210px;
+}
+.ride-discipline {
+  font-size: 12px;
+  border-radius: 0;
+  padding: 5px 10px;
+}
+.date-block {
+  border-radius: 0;
+  width: 55px;
+  padding: 8px 0;
+  background: var(--paper);
+}
+.date-block b {
+  font-family: var(--font-display);
+  font-size: 34px;
+}
+.date-block span {
+  font-size: 12px;
+}
+.ride-content {
+  padding: 23px;
+}
+.ride-content .eyebrow {
+  font-size: 11px;
+}
+.ride-content h3 {
+  font-family: var(--font-display);
+  font-size: 31px;
+  line-height: 1.06;
+}
+.ride-host {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 13px;
+  color: #c6d0bd;
+  margin-top: 18px;
+}
+.ride-host .avatar {
+  width: 29px;
+  height: 29px;
+}
+.ride-stats {
+  font-size: 13px;
+  margin: 23px 0;
+  gap: 18px;
+}
+.ride-stats b {
+  font-family: var(--font-display);
+  font-size: 32px;
+}
+.ride-ritual {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c0caae;
+  min-height: 41px;
+  margin-bottom: 13px;
+}
+.ride-ritual svg {
+  margin-top: 3px;
+  stroke-width: 1.6;
+}
+.ride-card .card-bottom {
+  font-size: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.club-home .ride-card {
+  background: #e7decc;
+  color: var(--ink);
+  border-color: #b8bda750;
+}
+.club-home .ride-host,
+.club-home .ride-stats,
+.club-home .ride-ritual,
+.club-home .ride-card .card-bottom {
+  color: #55614d;
+}
+.club-home .ride-stats b {
+  color: var(--ink);
+}
+.club-home .tag {
+  color: #445742;
+  border-color: #77846755;
+  background: #c1cbb12b;
+}
+.club-home .ride-card .card-bottom {
+  border-top-color: #71816336;
+}
+.ride-list-banner {
+  background: #30473d;
+  border-color: #62735a;
+  border-radius: 1px;
+}
+.ride-list-banner b {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+}
+.ride-list-banner > p {
+  font-size: 14px;
+}
+.ride-detail-hero {
+  border-radius: 1px;
+}
+.ride-detail-hero h1 {
+  font-size: clamp(3rem, 5.5vw, 5.4rem);
+}
+.ride-detail-hero .eyebrow {
+  font-size: 12px;
+}
+.ride-numbers strong {
+  font-family: var(--font-display);
+  font-size: 49px;
+}
+.ride-numbers span {
+  font-size: 12px;
+}
+.route-stops b {
+  font-size: 16px;
+}
+.booking {
+  top: 125px;
+}
+.booking-date > b {
+  font-family: var(--font-display);
+}
+.booking .eyebrow {
+  font-size: 12px;
+}
+.booking-date > div {
+  font-size: 12px;
+}
+.host small,
+.booking-capacity,
+.participation-status {
+  font-size: 13px;
+}
+.host b {
+  font-family: var(--font-display);
+  font-size: 24px;
+}
+.participants {
+  gap: 25px;
+}
+.participants > a,
+.participants > div {
+  font-size: 14px;
+}
+.participants .avatar {
+  width: 60px;
+  height: 60px;
+}
+.profile-facts p {
+  line-height: 1.7;
+}
+.dashboard-top .featured-ride {
+  min-height: 475px;
+}
+.featured-content h2 {
+  font-size: 47px;
+}
+.profile-prompt {
+  background: #30473d;
+  border-color: #637659;
+}
+.profile-prompt h3 {
+  font-family: var(--font-display);
+  font-size: 29px;
+}
+.profile-prompt p:last-child {
+  font-size: 14px;
+}
+.weather {
+  background: var(--paper);
+}
+.weather .temperature {
+  font-family: var(--font-display);
+}
+.dashboard-aside .eyebrow {
+  font-size: 12px;
+}
+.event-row h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+}
+.event-row p {
+  font-size: 13px;
+}
+.small-date b {
+  font-family: var(--font-display);
+  font-size: 35px;
+}
+.dashboard-bike img {
+  height: 205px;
+}
+.garage-feature,
+.bike-concept,
+.bike-detail-visual {
+  border-radius: 1px;
+}
+.garage-feature h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 80px;
+}
+.garage-feature > div > p:not(.eyebrow) {
+  font-size: 16px;
+}
+.big-stats > span {
+  font-family: var(--font-display);
+  font-size: 42px;
+}
+.big-stats small {
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+.bike-concept {
+  background: #2b3c2f;
+}
+.bike-concept:nth-child(2) {
+  background: #35382e;
+}
+.bike-concept h2 {
+  font-size: 35px;
+}
+.bike-concept > p {
+  font-size: 14px;
+}
+.bike-concept .member-metrics {
+  color: #c7d0bc;
+  font-size: 14px;
+}
+.bike-type {
+  color: #aaba96;
+}
+.bike-spec-head b {
+  font-family: var(--font-display);
+  font-size: 39px;
+}
+.spec {
+  border-radius: 1px;
+  background: #2b362c;
+}
+.spec span {
+  font-size: 14px;
+}
+.segmented button {
+  border-radius: 1px;
+  min-height: 46px;
+}
+.segmented button[data-state="active"] {
+  background: var(--paper);
+}

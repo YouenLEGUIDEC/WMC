@@ -30,13 +30,14 @@ export function Rides() {
     <div className="page">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">LES BONS MOMENTS NE SE ROULENT PAS SEUL</p>
+          <p className="eyebrow">LE CALENDRIER DU CLUB</p>
           <h1>
-            Dehors, <em>ensemble.</em>
+            On se retrouve <em>où ?</em>
           </h1>
           <p className="lead">
-            Une heure après le boulot ou toute la matinée. Trouve ta prochaine
-            échappée.
+            Un départ, une allure annoncée, des copains à retrouver. Choisis la
+            boucle qui tient dans ta journée — et garde un peu de temps pour la
+            pause.
           </p>
         </div>
         <span className="outline-stamp">
@@ -48,10 +49,10 @@ export function Rides() {
       <div className="ride-list-banner">
         <Coffee size={36} />
         <p>
-          <b>On part ensemble. On rentre ensemble.</b>
+          <b>Pour ces sorties, on s’attend.</b>
           <br />
-          Toutes les sorties de cette démo privilégient le plaisir et la
-          convivialité.
+          L’allure est un repère. Si quelqu’un a les jambes lourdes, on en parle
+          et on adapte le tour.
         </p>
         <span className="tag">Aucun événement réel</span>
       </div>
@@ -132,8 +133,8 @@ export function RideDetail({ ride }: { ride: Ride }) {
             </div>
           </div>
           <section className="panel">
-            <p className="eyebrow">AU PROGRAMME</p>
-            <h2>Des kilomètres. Et du bon temps.</h2>
+            <p className="eyebrow">LE MOT DE L’ORGANISATEUR</p>
+            <h2>Voilà le tour qu’on te propose.</h2>
             <p className="bio">{ride.description}</p>
             <div className="ride-info">
               <p>
@@ -152,7 +153,7 @@ export function RideDetail({ ride }: { ride: Ride }) {
           </section>
           <section className="panel inner-section">
             <p className="eyebrow">L’IDÉE DE PARCOURS</p>
-            <h2>Une boucle bien de chez nous.</h2>
+            <h2>Les endroits où l’on passerait.</h2>
             <ol className="route-stops">
               {ride.route.map((town, i) => (
                 <li key={`${town}-${i}`}>
@@ -177,7 +178,7 @@ export function RideDetail({ ride }: { ride: Ride }) {
           </section>
           <section className="panel inner-section">
             <h2>
-              Dans le peloton{" "}
+              Qui serait au départ{" "}
               <span className="amber">
                 ({ride.participants.length + (joined ? 1 : 0)})
               </span>
@@ -245,17 +246,19 @@ export function RideDetail({ ride }: { ride: Ride }) {
               onClick={() => toggleRide(ride.id)}
             >
               {joined ? <Check size={19} /> : <ArrowUpRight size={19} />}{" "}
-              {joined ? "Annuler ma participation démo" : "Je viens · en démo"}
+              {joined
+                ? "Finalement, je passe mon tour"
+                : "Comptez sur moi · démo"}
             </button>
             <p className="participation-status" role="status">
               {joined
-                ? "Tu es dans le peloton ! Participation enregistrée sur cet appareil."
+                ? "C’est noté pour cet essai. Tu retrouveras la sortie sur ta page club."
                 : "Simulation uniquement. Aucun organisateur ne sera contacté."}
             </p>
             <Link className="host" href={`/members/${host.id}`}>
               <Avatar member={host} />
               <div>
-                <small>Une sortie imaginée par</small>
+                <small>Le tour imaginé par</small>
                 <b>
                   {host.name}
                   <ArrowUpRight size={15} />

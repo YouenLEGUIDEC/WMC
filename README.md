@@ -4,6 +4,10 @@
 
 La communauté cycliste de Brandérion et du pays de Lorient. Cette première version est une **V0 visuelle navigable** destinée à valider la direction artistique et les parcours auprès des cyclistes. Ce n’est pas encore une plateforme communautaire en production.
 
+## Phase 2 — identité et voix du club
+
+La direction devient « Du Blavet à la terrasse » : crème papier, encre, cuivre et vert maritime ; logo typographique vectorisé ; scènes de vie de club et 16 portraits fictifs ; biographies singulières et textes réécrits. Le mini brand system, l’audit et les principes d’usage sont dans [docs/brand-system.md](docs/brand-system.md). Les fonctionnalités et identifiants de la V0 sont conservés.
+
 ## Ce qui fonctionne
 
 - Accueil éditorial, dashboard membre et navigation mobile.
@@ -57,7 +61,7 @@ components/ui/          Primitives accessibles du socle
 lib/demo/data.ts        Source unique des membres, sorties et vélos fictifs
 lib/demo/matching.ts    Calcul d’affinités pur et déterministe
 lib/demo/store.tsx      État local validé et abonnement React
-public/images/          Deux images originales, optimisées en WebP
+public/images/          Photographies générées, optimisées en WebP
 public/fonts/           Polices locales et licences
 worker/                 Entrée de rendu pour l’hébergement Cloudflare
 build/                  Adaptation du build pour l’hébergement
@@ -96,7 +100,7 @@ La préférence « privé / membres » n’est pas une politique d’accès serv
 
 ## Direction artistique et assets
 
-Carbone végétal `#141713`, anthracite `#1d211c`, crème `#f2efdf`, malt `#dbad70`. Barlow Condensed pour les grands titres sportifs, Manrope pour le texte. Grands espaces, accents mécaniques et photographie originale. Les deux images ont été générées pour cette V0 : elles ne représentent ni les membres du club ni une sortie réelle. Seul le vélo cuivre dispose d’une image ; les autres concepts affichent une icône et une indication explicite d’absence de photo. Pas de fausse 3D.
+Carbone végétal `#141713`, anthracite `#1d211c`, crème `#f2efdf`, malt `#dbad70`. Barlow Condensed pour les grands titres sportifs, Manrope pour le texte. Grands espaces, accents mécaniques et photographie originale. Les images ont été générées pour cette démonstration : elles ne représentent ni les membres du club ni une sortie réelle. Seul le vélo cuivre dispose d’une image ; les autres concepts affichent une icône et une indication explicite d’absence de photo. Pas de fausse 3D.
 
 Polices sous SIL Open Font License, redistribuées avec leurs licences dans `public/fonts/`. Sources : [Barlow Condensed](https://github.com/google/fonts/tree/main/ofl/barlowcondensed), [Manrope](https://github.com/google/fonts/tree/main/ofl/manrope).
 
