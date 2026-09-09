@@ -46,31 +46,32 @@ export function Members() {
     <div className="page">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">LE BON RYTHME. LES BONNES PERSONNES.</p>
+          <p className="eyebrow">LES MAILLOTS QU’ON CROISE PAR ICI</p>
           <h1>
-            Trouve <em>ta roue.</em>
+            Tu les connais <em>de vue.</em>
           </h1>
           <p className="lead">
-            Des cyclistes du coin, avec un peu de toi dans leur façon de rouler.
+            À Hennebont, sur la route de Plouay ou en sortant de Lorient. Il ne
+            manque parfois qu’un prénom pour partir ensemble.
           </p>
         </div>
         <span className="outline-stamp">
           16 PROFILS
           <br />
-          100 % FICTIFS
+          DU COIN · FICTIFS
         </span>
       </div>
       <div className="match-banner">
         <span className="match-symbol">&</span>
         <div>
-          <h3>Des affinités, pas une compétition.</h3>
+          <h3>Ça vaut le coup de faire un tour ensemble ?</h3>
           <p>
-            Les scores comparent votre secteur, allure, distance et vos envies.
-            Aucun niveau n’est meilleur qu’un autre.
+            Même créneau, même allure, mêmes envies : quelques repères pour se
+            trouver. Le courant, lui, se vérifie en roulant.
           </p>
         </div>
         <Link href="/onboarding" className="text-link">
-          Ajuster mon profil
+          Dire comment je roule
           <ArrowUpRight size={18} />
         </Link>
       </div>
@@ -112,7 +113,7 @@ export function Members() {
       </div>
       <div className="results-bar">
         <span role="status">{results.length} cyclistes fictifs</span>
-        <span>Triés par affinités avec {state.profile.name}</span>
+        <span>Les plus proches des envies de {state.profile.name}</span>
         <button onClick={reset}>Effacer les filtres</button>
       </div>
       {results.length ? (
@@ -123,7 +124,7 @@ export function Members() {
         </div>
       ) : (
         <Empty
-          text="Essaie un autre créneau ou élargis ton secteur."
+          text="Essaie une commune voisine ou un autre matin. Les bonnes rencontres tiennent parfois à peu de chose."
           action={reset}
         />
       )}
@@ -140,21 +141,21 @@ export function MemberDetail({ member }: { member: Member }) {
       <div className="profile-cover">
         <span>{member.town.toUpperCase()} / BRETAGNE</span>
         <strong>
-          LA ROUTE
+          ON S’EST CROISÉS
           <br />
-          SE PARTAGE.
+          QUELQUE PART ?
         </strong>
         <span>PROFIL FICTIF · W&M</span>
       </div>
       <div className="profile-heading">
         <Avatar member={member} large />
         <div>
-          <p className="eyebrow">MEMBRE DE DÉMONSTRATION</p>
+          <p className="eyebrow">UN PRÉNOM DANS LE PELOTON · PROFIL FICTIF</p>
           <h1>
             {member.name}
             <em> · {member.town}</em>
           </h1>
-          <p>{member.style}. Et toujours une bonne raison de repartir.</p>
+          <p>« {member.quote} »</p>
         </div>
         <button
           className="btn secondary"
@@ -162,15 +163,21 @@ export function MemberDetail({ member }: { member: Member }) {
           onClick={() => toggleSave(member.id)}
         >
           {saved ? <Check size={18} /> : <UsersIcon />}
-          {saved ? "Dans mes favoris" : "Garder dans ma roue"}
+          {saved
+            ? "Dans mes copains à retrouver"
+            : "Retrouver ce profil plus tard"}
         </button>
       </div>
       <div className="profile-columns">
         <div>
           <section className="panel">
-            <p className="eyebrow">DANS SA ROUE</p>
-            <h2>Le plaisir avant le compteur.</h2>
+            <p className="eyebrow">LES PRÉSENTATIONS</p>
+            <h2>{member.name}, côté vélo.</h2>
             <p className="bio">{member.bio}</p>
+            <p className="member-road">
+              <MapPin size={17} />
+              {member.road}
+            </p>
             <div className="profile-stats">
               <div>
                 <b>
@@ -188,7 +195,7 @@ export function MemberDetail({ member }: { member: Member }) {
               </div>
               <div>
                 <b>{member.discipline}</b>
-                <span>Discipline favorite</span>
+                <span>Son terrain</span>
               </div>
             </div>
             <div className="profile-facts">
@@ -202,12 +209,12 @@ export function MemberDetail({ member }: { member: Member }) {
               </p>
               <p>
                 <Coffee />
-                Après la sortie : {member.social.toLowerCase()}
+                {member.ritual}
               </p>
             </div>
           </section>
           <section className="panel inner-section">
-            <p className="eyebrow">SON COMPAGNON DE ROUTE · EXEMPLE</p>
+            <p className="eyebrow">LE VÉLO QU’ON POURRAIT CROISER · EXEMPLE</p>
             <Link href={`/garage/${bikes[0].id}`} className="profile-bike">
               <img
                 width={1536}
@@ -227,17 +234,20 @@ export function MemberDetail({ member }: { member: Member }) {
           </section>
         </div>
         <aside className="compatibility-panel">
-          <p className="eyebrow">VOUS DEUX · RIDE MATCH</p>
+          <p className="eyebrow">UNE IDÉE DE VOS AFFINITÉS</p>
           <div className="huge-score">
             {match.score}
             <span>%</span>
           </div>
           <h2>
             {match.score >= 80
-              ? "Une belle roue à prendre."
-              : "Une rencontre à explorer."}
+              ? "Vous avez des envies en commun."
+              : "À vous de trouver votre sortie."}
           </h2>
-          <p className="muted">Affinités avec ton profil de démonstration.</p>
+          <p className="muted">
+            Un point de départ pour choisir une sortie, calculé sur vos
+            préférences fictives.
+          </p>
           <div className="factor-list">
             {match.factors.map((f) => (
               <div key={f.label}>
@@ -253,7 +263,7 @@ export function MemberDetail({ member }: { member: Member }) {
             ))}
           </div>
           <Link className="btn" href={`/rides?buddy=${member.id}`}>
-            Trouver une sortie ensemble
+            Regarder les sorties du coin
             <ArrowUpRight size={18} />
           </Link>
           <p className="small-note">

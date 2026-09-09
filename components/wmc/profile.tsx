@@ -19,7 +19,7 @@ export function Profile() {
     <div className="page">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">MON PROFIL LOCAL · DÉMONSTRATION</p>
+          <p className="eyebrow">TA FICHE AU CLUB · DÉMONSTRATION</p>
           <h1>
             {state.profile.name}
             <em> · {state.profile.town}</em>
@@ -30,7 +30,7 @@ export function Profile() {
           </p>
         </div>
         <Link href="/onboarding" className="btn">
-          Modifier mon profil
+          Revoir ma fiche
           <ArrowUpRight size={18} />
         </Link>
       </div>
@@ -49,7 +49,7 @@ export function Profile() {
         </div>
       </div>
       <section className="inner-section">
-        <h2>Mes prochaines sorties</h2>
+        <h2>Les tours où l’on te retrouvera</h2>
         {state.joined.length ? (
           <div className="ride-grid">
             {rides
@@ -60,7 +60,10 @@ export function Profile() {
           </div>
         ) : (
           <div className="empty">
-            <p>Ton calendrier attend sa première échappée.</p>
+            <p>
+              Tu n’as pas encore choisi de sortie. Un tour court peut être une
+              bonne façon de faire connaissance.
+            </p>
             <Link href="/rides" className="btn">
               Découvrir les sorties
               <ArrowUpRight size={18} />
@@ -69,7 +72,7 @@ export function Profile() {
         )}
       </section>
       <section className="inner-section">
-        <h2>Les roues que je garde en tête</h2>
+        <h2>Les copains à retrouver</h2>
         {state.saved.length ? (
           <div className="member-grid">
             {members
@@ -81,11 +84,11 @@ export function Profile() {
         ) : (
           <div className="empty">
             <p>
-              Garde un cycliste dans ta roue depuis sa fiche pour le retrouver
-              ici.
+              Un profil te parle ? Garde-le depuis sa fiche : tu le retrouveras
+              ici avant de choisir ta prochaine sortie.
             </p>
             <Link href="/members" className="text-link">
-              Rencontrer le peloton
+              Voir les copains du coin
               <ArrowUpRight size={18} />
             </Link>
           </div>

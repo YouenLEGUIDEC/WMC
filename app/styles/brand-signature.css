@@ -1,0 +1,118 @@
+/* Signature commune */
+.club-brand {
+  display: inline-block;
+  line-height: 1;
+  width: 222px;
+}
+.club-brand img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.header {
+  height: 103px;
+  background: #202522f5;
+  padding: 0 4.5%;
+  border-bottom: 1px solid #d5ab652b;
+  gap: 30px;
+  backdrop-filter: blur(12px);
+}
+.wordmark {
+  display: block;
+  transform: none;
+}
+.desktop-nav {
+  gap: 31px;
+}
+.desktop-nav a {
+  color: #ede6d6;
+  font-size: 14px;
+  position: relative;
+  border: 0;
+}
+.desktop-nav a:after {
+  content: "";
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+  background: var(--amber);
+}
+.desktop-nav a:hover:after,
+.desktop-nav a[aria-current]:after {
+  transform: scaleX(1);
+}
+.header-cta {
+  background: var(--amber);
+  color: var(--ink);
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 1px;
+  font-size: 14px;
+}
+.header-cta:hover {
+  background: #e1bb7e;
+}
+.demo-ribbon {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  background: #30473d;
+  color: #dedfcf;
+  letter-spacing: 0;
+  font-size: 12px;
+  padding: 7px 4%;
+}
+.demo-ribbon span {
+  display: inline;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+.demo-ribbon .demo-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding-right: 12px;
+  border-right: 1px solid #9dad975c;
+}
+.demo-ribbon .demo-detail {
+  opacity: 0.7;
+  margin-left: 10px;
+}
+.club-seal {
+  width: 143px;
+  height: 143px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  transform: rotate(9deg);
+  gap: 3px;
+}
+.club-seal > span {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+.club-seal > strong {
+  font-family: var(--font-display);
+  font-size: 51px;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.club-seal strong span {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 42px;
+  color: var(--copper);
+}

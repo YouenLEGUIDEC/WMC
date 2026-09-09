@@ -21,15 +21,14 @@ export function Garage() {
     <div className="page">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">
-            LES MACHINES. LES HISTOIRES. LES KILOMÈTRES.
-          </p>
+          <p className="eyebrow">LE COIN OÙ L’ON PARLE BRAQUETS</p>
           <h1>
             Le <em>garage.</em>
           </h1>
           <p className="lead">
-            Certains collectionnent les kilomètres. Nous, on s’attache aussi aux
-            vélos.
+            Le vélo qu’on bichonne, celui qu’on prête, celui qui fait encore ce
+            petit bruit. On finit par les connaître aussi bien que leurs
+            propriétaires.
           </p>
         </div>
         <span className="outline-stamp">
@@ -40,7 +39,7 @@ export function Garage() {
       </div>
       <Link href="/garage/le-cuivre" className="garage-feature">
         <div>
-          <p className="eyebrow">01 / LE COMPAGNON DES DIMANCHES</p>
+          <p className="eyebrow">FICHE 01 / CELUI DU DIMANCHE</p>
           <h2>LE CUIVRE.</h2>
           <p>Atelier W&M · All Road 01</p>
           <div className="big-stats">
@@ -48,11 +47,11 @@ export function Garage() {
               8,2<small>KG</small>
             </span>
             <span>
-              2 843<small>KM PARTAGÉS</small>
+              2 843<small>KM AU COMPTEUR</small>
             </span>
           </div>
           <span className="btn">
-            Entrer dans les détails
+            Regarder le montage
             <ArrowUpRight size={18} />
           </span>
         </div>
@@ -161,7 +160,7 @@ export function BikeDetail({ bike }: { bike: Bike }) {
             <h2>
               {bike.type} / {bike.color}
             </h2>
-            <p>Photographie non disponible pour ce concept.</p>
+            <p>On n’a pas encore de photo de ce vélo concept.</p>
           </div>
         )}
       </div>
@@ -202,7 +201,7 @@ export function BikeDetail({ bike }: { bike: Bike }) {
         <TabsContent value="Carnet de route">
           <section className="panel">
             <p className="eyebrow">CARNET FICTIF</p>
-            <h2>Prendre soin de sa monture.</h2>
+            <h2>Un peu d’attention entre deux sorties.</h2>
             <div className="maintenance-row">
               <Wrench />
               <div>

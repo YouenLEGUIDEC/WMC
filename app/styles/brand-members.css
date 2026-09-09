@@ -1,0 +1,226 @@
+/* Visages et voix : le score devient un renseignement, pas le portrait. */
+.member-grid {
+  gap: 21px;
+}
+.member-card {
+  padding: 0;
+  border: 0;
+  border-radius: 1px;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: none;
+  transition: transform 0.2s;
+}
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px #00000012;
+}
+.member-portrait-frame {
+  position: relative;
+  aspect-ratio: 1.2;
+  overflow: hidden;
+  background: #9a9f86;
+}
+.member-portrait-frame .avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  aspect-ratio: 1;
+  display: block;
+}
+.member-portrait-frame {
+  aspect-ratio: 1;
+}
+.member-discipline {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: var(--paper);
+  color: #344435;
+  padding: 3px 9px;
+  font-size: 12px;
+  border: 1px solid #ffffff90;
+}
+.member-number {
+  position: absolute;
+  top: 12px;
+  right: 13px;
+  font-size: 10px;
+  color: #fff9ee;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 7px #00000080;
+}
+.member-card-body {
+  padding: 21px;
+}
+.member-name-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.member-name-line h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+}
+.member-name-line > span {
+  font-size: 12px;
+  color: #5d6858;
+}
+.member-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 13px 0;
+  min-height: 78px;
+  color: #3c4d3d;
+}
+.member-metrics {
+  font-size: 12px;
+  gap: 4px 13px;
+  color: #5d6858;
+  margin: 13px 0 18px;
+  line-height: 1.7;
+}
+.member-metrics b {
+  color: var(--ink);
+}
+.member-card .card-bottom {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #43533b30;
+  color: #394b39;
+  gap: 12px;
+  padding-top: 15px;
+  flex-wrap: wrap;
+}
+.member-card .match-number {
+  font-family: var(--font-body);
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: #53644b;
+  display: inline;
+}
+.member-card .match-number b {
+  font-weight: 700;
+  color: var(--copper);
+}
+.member-card .member-meet {
+  display: flex;
+  font-size: 11px;
+  gap: 6px;
+  align-items: center;
+}
+.portrait {
+  background-repeat: no-repeat;
+}
+.avatar {
+  box-shadow: none;
+  border-color: #e3dac740;
+}
+.avatar.large {
+  border-color: var(--ink);
+}
+.member-road {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--amber);
+  padding: 16px 0;
+}
+.profile-cover {
+  background:
+    linear-gradient(90deg, #24392cc7, #24392c32),
+    url("/images/club-morning.webp") center 49% / cover;
+  height: 260px;
+}
+.profile-cover > strong {
+  font-size: 56px;
+  color: #fff5e3b0;
+  line-height: 1;
+  font-weight: 700;
+}
+.profile-cover > span {
+  font-size: 11px;
+  color: #f4efdf;
+}
+.profile-heading p:last-child {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+.profile-heading h1 {
+  font-size: 44px;
+}
+.profile-heading h1 em {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+.profile-heading .eyebrow {
+  font-size: 11px;
+}
+.profile-columns {
+  grid-template-columns: 1.5fr 1fr;
+}
+.compatibility-panel {
+  background: #30473d;
+  border-color: #72826b;
+  border-radius: 1px;
+}
+.huge-score {
+  font-family: var(--font-display);
+  font-size: 80px;
+  letter-spacing: -0.02em;
+}
+.compatibility-panel h2 {
+  font-size: 31px;
+}
+.factor-list .spread,
+.factor-list p {
+  font-size: 13px;
+}
+.compatibility-panel .small-note {
+  font-size: 12px;
+}
+.match-banner {
+  background: #30473d;
+  border-color: #63765b;
+  border-radius: 1px;
+}
+.match-banner h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+}
+.match-banner p {
+  font-size: 14px;
+}
+.match-symbol {
+  font-family: var(--serif);
+  font-style: italic;
+}
+.results-bar {
+  font-size: 13px;
+}
+.results-bar button {
+  font-size: 13px;
+  min-height: 44px;
+}
+.search-field input {
+  font-size: 14px;
+}
+.filters .field-label {
+  font-size: 13px;
+}

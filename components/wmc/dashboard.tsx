@@ -17,10 +17,10 @@ export function Dashboard() {
     <div className="page">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">TON COIN. TON RYTHME. TON PELOTON.</p>
+          <p className="eyebrow">LA PORTE DU CLUB EST OUVERTE</p>
           <h1>
             Salut {state.profile.name}.<br />
-            <em>Qui roule aujourd’hui ?</em>
+            <em>Tu sors le vélo ?</em>
           </h1>
         </div>
         <Link className="btn" href="/rides">
@@ -40,7 +40,7 @@ export function Dashboard() {
             <p className="eyebrow">
               {state.joined.includes(next.id)
                 ? "TU ES DANS LE PELOTON"
-                : "TA PROCHAINE ÉCHAPPÉE ?"}
+                : "ON TE PROPOSE CE TOUR"}
             </p>
             <h2>{next.title}</h2>
             <p>
@@ -77,7 +77,7 @@ export function Dashboard() {
             <div className="temperature">
               18°<small>Brandérion</small>
             </div>
-            <p>Un beau créneau pour les jambes.</p>
+            <p>Une couche légère, et le vent dans le dos au retour ?</p>
             <div className="weather-details">
               <span>
                 <Wind size={16} />
@@ -93,13 +93,13 @@ export function Dashboard() {
             <span className="eyebrow">FAIS LES PRÉSENTATIONS</span>
             <h3>
               {state.onboarded
-                ? "Ton profil, à ton image."
-                : "Ton peloton commence par toi."}
+                ? "Tes habitudes ont changé ?"
+                : "On ne s’est pas encore présentés."}
             </h3>
             <p>
               {state.onboarded
                 ? "Ajuste tes envies et tes disponibilités."
-                : "Deux minutes pour trouver les bonnes roues."}
+                : "Ton coin, ton allure et le jour où tu es libre."}
               <ArrowUpRight size={19} />
             </p>
           </Link>
@@ -108,7 +108,7 @@ export function Dashboard() {
       <section className="inner-section">
         <SectionTitle
           eyebrow="RIDE MATCH · À TON RYTHME"
-          title="Vous devriez bien rouler ensemble."
+          title="Ces copains-là roulent un peu comme toi."
           href="/members"
           link="Mes affinités"
         />
@@ -122,7 +122,7 @@ export function Dashboard() {
         <section className="panel">
           <SectionTitle
             eyebrow="LES RENDEZ-VOUS DU COIN"
-            title="À mettre au calendrier."
+            title="Les prochains rendez-vous."
             href="/rides"
             link="Voir tout"
           />
@@ -170,7 +170,7 @@ export function Dashboard() {
           </Link>
           <p className="small-note">
             <Coffee size={17} />
-            Les watts se partagent. Les bons moments aussi.
+            Le petit bruit attendra moins longtemps si on en parle au garage.
           </p>
         </section>
       </div>

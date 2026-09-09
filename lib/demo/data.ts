@@ -1,3 +1,4 @@
+import { memberStories } from "./stories.ts";
 export type Discipline = "Route" | "Gravel" | "VTT";
 export type Member = {
   id: string;
@@ -13,6 +14,10 @@ export type Member = {
   color: string;
   kmAway: number;
   initials: string;
+  quote: string;
+  road: string;
+  ritual: string;
+  portrait: number;
 };
 const names = [
   "Maël",
@@ -72,12 +77,11 @@ export const members: Member[] = names.map((name, i) => ({
     "On part ensemble",
   ][i % 8],
   social: i % 4 === 2 ? "Terrasse" : "Café",
-  bio: [
-    "Les petites routes, les grandes discussions. Toujours partant pour un café en chemin.",
-    "Le plaisir de rouler passe avant le compteur. On se retrouve au départ ?",
-    "À la recherche des chemins qu’on ne connaît pas encore. Curieux de tout, surtout du prochain virage.",
-    "Pas besoin d’aller vite pour aller loin. J’aime les sorties où personne ne reste derrière.",
-  ][i % 4],
+  bio: memberStories[i].bio,
+  quote: memberStories[i].quote,
+  road: memberStories[i].road,
+  ritual: memberStories[i].ritual,
+  portrait: i,
   color: ["#b58e68", "#788b81", "#8899aa", "#aa8176"][i % 4],
   kmAway: [2, 8, 19, 6, 10, 15, 26, 21][i % 8],
   initials: name.slice(0, 2).toUpperCase(),
@@ -105,7 +109,7 @@ export type Ride = {
 export const rides: Ride[] = [
   {
     id: "sunday-malt-ride",
-    title: "Sunday Malt Ride",
+    title: "Le dimanche de Brandérion",
     date: "2026-09-13",
     day: "13",
     month: "SEP",
@@ -119,14 +123,14 @@ export const rides: Ride[] = [
     max: 12,
     host: "mael",
     description:
-      "Notre rendez-vous du dimanche. Des petites routes vers la vallée du Blavet, quelques bosses pour les jambes et une pause café pour le plaisir. On s’attend en haut, on rentre ensemble.",
+      "Départ à 8 h 30 de Brandérion. Maël propose de remonter vers Languidic et Plouay, puis de revenir par Hennebont. Quelques bosses, une allure régulière et une pause café. On attend en haut : personne ne fait le retour tout seul. Prévoir un peu de marge si la conversation continue au retour.",
     cafe: "Pause café à Hennebont • km 58",
     route: ["Brandérion", "Languidic", "Plouay", "Hennebont", "Brandérion"],
     tag: "Personne derrière",
   },
   {
     id: "gravel-au-fil-du-blavet",
-    title: "Au fil du Blavet",
+    title: "Le Blavet, côté chemins",
     date: "2026-09-12",
     day: "12",
     month: "SEP",
@@ -140,14 +144,14 @@ export const rides: Ride[] = [
     max: 8,
     host: "thomas",
     description:
-      "Du halage, des chemins creux et des détours en forêt. Une exploration tranquille avec une vraie pause au bord de l’eau. Pneus de 35 mm ou plus conseillés.",
+      "Thomas propose de suivre le Blavet au départ d’Hennebont, puis de quitter le halage pour quelques chemins. On part pour découvrir, avec une pause casse-croûte au bord de l’eau. Pneus de 35 mm ou plus conseillés. La boucle est indicative : on ajuste selon l’état du terrain.",
     cafe: "Pique-nique au bord du Blavet",
     route: ["Hennebont", "Lochrist", "Languidic", "Hennebont"],
     tag: "Esprit découverte",
   },
   {
     id: "afterwork-cote",
-    title: "La côte après le boulot",
+    title: "Après le boulot, la côte",
     date: "2026-09-09",
     day: "09",
     month: "SEP",
@@ -161,14 +165,14 @@ export const rides: Ride[] = [
     max: 10,
     host: "lena",
     description:
-      "On ferme l’ordinateur et on ouvre les poumons. Direction la côte pour une boucle avant le coucher du soleil. Éclairage recommandé pour le retour.",
+      "Léna propose une boucle après le boulot depuis Lorient, par Larmor-Plage et Guidel. On part à 18 h pour profiter de la lumière, avec un rythme qui laisse parler. Prends tes lumières pour le retour. S’il reste un peu de temps, on cherche une terrasse.",
     cafe: "Une terrasse si le cœur vous en dit",
     route: ["Lorient", "Larmor-Plage", "Guidel", "Lorient"],
     tag: "Afterwork",
   },
   {
     id: "premiers-tours",
-    title: "Les premiers tours ensemble",
+    title: "On reprend doucement",
     date: "2026-09-19",
     day: "19",
     month: "SEP",
@@ -182,7 +186,7 @@ export const rides: Ride[] = [
     max: 8,
     host: "camille",
     description:
-      "Tu débutes ou tu reprends ? Cette sortie est pour toi. Allure douce, conseils si tu en veux et aucune pression. L’essentiel : passer un bon moment.",
+      "Camille a imaginé une petite boucle au départ de Kervignac pour celles et ceux qui débutent ou reprennent. On vérifie les vélos ensemble avant de partir. Le rythme est doux, les arrêts possibles et les questions bienvenues. On vise la boulangerie au retour.",
     cafe: "Boulangerie au retour",
     route: ["Kervignac", "Nostang", "Brandérion", "Kervignac"],
     tag: "Débutants bienvenus",
@@ -218,7 +222,7 @@ export const bikes: Bike[] = [
     wheels: "Carbone · profil 40 mm",
     tires: "28 mm · tubeless",
     description:
-      "Le compagnon des dimanches un peu longs et des retours un peu trop courts.",
+      "Le vélo des dimanches vers Plouay. Une guidoline qu’on surveille, un petit bruit qu’on cherche encore et déjà quelques bonnes histoires au compteur.",
   },
   {
     id: "passe-partout",
@@ -234,7 +238,7 @@ export const bikes: Bike[] = [
     wheels: "Aluminium · 700C",
     tires: "42 mm · tubeless",
     description:
-      "Pour prendre à gauche quand tout le monde continue sur la route.",
+      "Celui qu’on prend pour longer le Blavet, puis voir ce qu’il y a derrière le prochain chemin. Les sacoches restent dessus : on ne sait jamais.",
   },
   {
     id: "les-sous-bois",
@@ -249,7 +253,8 @@ export const bikes: Bike[] = [
     groupset: "SRAM NX · 32 dents",
     wheels: "29 pouces · aluminium",
     tires: "2,35 pouces",
-    description: "Des racines, du silence et juste ce qu’il faut de boue.",
+    description:
+      "Il revient rarement propre des chemins de Languidic. On le rince, on vérifie la transmission et il attend déjà le dimanche suivant.",
   },
 ];
 export const defaultProfile = {

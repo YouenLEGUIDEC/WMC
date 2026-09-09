@@ -1,0 +1,90 @@
+/* Onboarding : l’accueil du club. */
+.onboarding-aside {
+  position: relative;
+  background:
+    linear-gradient(0deg, #263b2cef, #263b2cba),
+    url("/images/club-morning.webp") 42% center / cover;
+  padding-top: 65px;
+}
+.onboarding-aside h1 {
+  font-size: clamp(3.5rem, 5.5vw, 5.8rem);
+  text-transform: none;
+  font-weight: 700;
+  line-height: 1.03;
+}
+.onboarding-aside h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.85em;
+}
+.onboarding-aside > p:not(.eyebrow):not(.small-note) {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e1e4d3;
+}
+.onboarding-aside li {
+  font-size: 14px;
+  color: #c1ccaf;
+}
+.onboarding-aside li > span {
+  width: 34px;
+  height: 34px;
+  border-color: #9fb18a;
+}
+.onboarding-aside .small-note {
+  font-size: 12px;
+}
+.onboarding-form {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+.form-step > h2 {
+  font-size: 40px;
+}
+.form-step > .muted {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.form-step .field input {
+  background: #29362b;
+}
+.form-step .choice [data-slot="select-trigger"] {
+  background: #29362b;
+  border-color: #66795b;
+}
+.range-field .spread {
+  font-size: 14px;
+}
+.range-captions {
+  font-size: 12px;
+}
+.form-step .consent {
+  font-size: 14px;
+}
+.form-step .small-note {
+  font-size: 12px;
+}
+.onboarding-recap {
+  background: #30473d;
+  border-color: #7e8c69;
+}
+.onboarding-recap h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+}
+.onboarding-recap p {
+  font-size: 14px;
+}
+.form-actions .btn {
+  min-height: 52px;
+}
+.narrow > .lead {
+  max-width: none;
+}
+.privacy-row {
+  font-size: 14px;
+}
+.privacy-link {
+  font-size: 15px;
+  border-radius: 1px;
+}

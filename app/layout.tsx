@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./fonts.css";
 import "./globals.css";
+import "./brand.css";
 import { Shell } from "@/components/wmc/shell";
 export const metadata: Metadata = {
   title: {
-    default: "Watt & Malt Club — Le vélo, ensemble.",
+    default: "Watt & Malt Club — Du Blavet à la terrasse.",
     template: "%s · Watt & Malt",
   },
   description:
